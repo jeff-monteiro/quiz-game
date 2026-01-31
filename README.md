@@ -8,3 +8,6 @@
     * History
     * Science
     * Geography
+
+* (Random Questions): When the user restart the game, the questions should not be in the same order.
+* (Restart Option): When the user goes wrong, show a message to the user, continue or restart the game.
