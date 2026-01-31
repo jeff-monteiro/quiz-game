@@ -23,8 +23,8 @@ type GameState struct {
 
 // Method that gives the kick off on game
 func (g *GameState) Init() {
-	fmt.Println("Seja bem vindo(a) ao quiz")
-	fmt.Println("Escreva o seu nome:")
+	fmt.Println("Welcome to the quiz")
+	fmt.Println("Choose a nickname:")
 
 	reader := bufio.NewReader(os.Stdin)
 	name, err := reader.ReadString('\n')
@@ -34,7 +34,7 @@ func (g *GameState) Init() {
 	}
 
 	g.Name = name
-	fmt.Printf("Vamos jogar %s", g.Name)
+	fmt.Printf("Let's Play %s", g.Name)
 }
 
 // Method that open, process and read the CSV file
@@ -42,7 +42,7 @@ func (g *GameState) ProccessCSV() {
 
 	f, err := os.Open("Questionsgo.csv")
 	if err != nil {
-		panic("Erro ao abrir arquivo CSV!")
+		panic("Error on open CSV file!")
 	}
 
 	defer f.Close()
@@ -50,7 +50,7 @@ func (g *GameState) ProccessCSV() {
 	reader := csv.NewReader(f)
 	records, err := reader.ReadAll()
 	if err != nil {
-		panic("Erro ao ler arquivo CSV!")
+		panic("Error on read CSV file!")
 	}
 
 	for index, record := range records {
@@ -77,7 +77,7 @@ func (g *GameState) Run() {
 			fmt.Printf("[%d] %s\n", j+1, option)
 		}
 
-		fmt.Println("Digite uma alternativa")
+		fmt.Println("Insert one alternative:")
 
 		var answer int
 		var err error
