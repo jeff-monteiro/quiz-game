@@ -109,9 +109,11 @@ func (g *GameState) Run() {
 
 func main() {
 	game := &GameState{}
-	game.ProccessCSV()
-	//game.Init()
+	go game.ProccessCSV()
+	game.Init()
 	game.Run()
+
+	fmt.Printf("End Game, you performed %d points!\n", game.Points)
 
 }
 
